@@ -11,15 +11,27 @@
       "president": {
         "clinton": 90,
         "trump": 61,
+        "clinton_pct": 1,
+        "trump_pct": 1,
         "bestGuessClinton": 245,
         "bestGuessTrump": 212,
-        "footnote": "(12 of 50 states reporting as of 9:28am)"
+        "bestGuessClinton_pct": 45.5,
+        "bestGuessTrump_pct": 39.4,
+        "footnote": "(12 of 50 states reporting as of 9:28am)",
+        "isFinal": true
       },
       "senate": {
-        "foo": "bar"
+        "dem": 35,
+        "rep": 25,
+        "ind": 1,
+        "dem_contested": 9,
+        "rep_contested": 20
       },
       "house": {
-        "foo": "bar"
+        "dem": 261,
+        "dem_pct": 30,
+        "rep": 174,
+        "rep_pct": 40
       }
     }
   }
