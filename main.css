@@ -22,3 +22,58 @@
   height: 90px;
   overflow: hidden;
 }
+
+.uemd__chart-presidential--bar-container {
+  width: 50%;
+  height: 3em;
+}
+
+.uemd__chart-presidential--bar-container.dem {
+  float: left;
+  border-right: 1px solid white;
+}
+
+.uemd__chart-presidential--bar-container.rep {
+  float: right;
+  text-align:right;
+}
+
+.uemd__chart-presidential--bar {
+  background: #5C5C5C;
+  padding: 0;
+  margin: 0.5em 0;
+  height: 2em;
+}
+
+.uemd__chart-presidential--bar-dem {
+  background: #0094CB;
+  float: left;
+  padding: 0.5em 0 0.5em 0.5em;
+  height: 2em
+}
+
+.uemd__chart-presidential--bar-rep {
+  background: #F12C49;
+  float: right;
+  padding: 0.5em 0.5em 0.5em 0;
+  height: 2em
+}
+
+.uemd .uemd__chart-presidential--footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uemd .uemd__chart-presidential--footer > * {
+  font-size: .75em;
+}
+
+.uemd__chart-presidential--majority-label {
+  align-self: center;
+}
+
+.uemd__chart-presidential--footnote {
+  align-self: flex-end;
+}
