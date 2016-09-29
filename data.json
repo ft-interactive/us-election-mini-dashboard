@@ -1,0 +1,30 @@
+{
+  "refreshAfter": 60000,
+  "componentState": {
+    "enabledPanels": [
+      "president",
+      "senate",
+      "house",
+      "markets"
+    ],
+    "switchTabEvery": 10000,
+    "panelContents": {
+      "president": {
+        "clinton": 90,
+        "trump": 61,
+        "bestGuessClinton": 245,
+        "bestGuessTrump": 212,
+        "footnote": "(12 of 50 states reporting as of 9:28am)"
+      },
+      "senate": {
+        "foo": "bar"
+      },
+      "house": {
+        "foo": "bar"
+      },
+      "markets": {
+        "foo": "bar"
+      }
+    }
+  }
+}

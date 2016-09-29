@@ -1,0 +1,23 @@
+.demo-container {
+  margin: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* NB. "uemd" is shorthand for "us-election-mini-dashboard" while in development */
+
+.uemd {
+  box-sizing: border-box;
+}
+.uemd * {
+  font: 14px MetricWeb, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.uemd__panel-content {
+  height: 90px;
+  overflow: hidden;
+}
