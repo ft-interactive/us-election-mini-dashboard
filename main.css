@@ -10,8 +10,9 @@
 .uemd {
   box-sizing: border-box;
 }
+
 .uemd * {
-  font: 14px MetricWeb, sans-serif;
+  font: 16px MetricWeb, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: inherit;

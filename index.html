@@ -8,7 +8,6 @@
 
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.0/dat.gui.min.js"></script>
 	</head>
 	<body>
     <main></main>
@@ -16,7 +15,7 @@
     <template id="uemd-main-template">
       <section class="uemd">
         {{#each panels}}
-        <article class="uemd__panel uemd__panel--president">
+        <article class="uemd__panel uemd__panel--{{type}}">
           <h5 class="uemd__panel-heading">{{heading}}</h5>
 
           <div class="uemd__panel-content">
@@ -39,10 +38,6 @@
 
     <template id="uemd-template-house">
       <p>house TKTK</p>
-    </template>
-
-    <template id="uemd-template-markets">
-      <p>markets TKTK</p>
     </template>
 
     <script src="main.js"></script>

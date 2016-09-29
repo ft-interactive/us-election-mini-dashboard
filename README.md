@@ -11,3 +11,7 @@ Aim:
 
 1. `npm install`
 2. `npm start`
+
+## Notes
+
+- there is also going to be a 'markets' panel containing inline SVGs, but this will be added with clientside javascript only.

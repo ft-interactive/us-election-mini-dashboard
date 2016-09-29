@@ -3,9 +3,8 @@
   "componentState": {
     "enabledPanels": [
       "president",
-      "senate",
       "house",
-      "markets"
+      "senate"
     ],
     "switchTabEvery": 10000,
     "panelContents": {
@@ -20,9 +19,6 @@
         "foo": "bar"
       },
       "house": {
-        "foo": "bar"
-      },
-      "markets": {
         "foo": "bar"
       }
     }
