@@ -18,14 +18,14 @@
         "bestGuessClinton_pct": 45.5,
         "bestGuessTrump_pct": 39.4,
         "footnote": "(12 of 50 states reporting as of 9:28am)",
-        "isFinal": true
+        "isFinal": false
       },
       "senate": {
-        "dem": 35,
+        "dem": 30,
         "rep": 25,
         "ind": 1,
-        "dem_contested": 9,
-        "rep_contested": 20
+        "dem_contested": 19,
+        "rep_contested": 25
       },
       "house": {
         "dem": 261,
