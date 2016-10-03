@@ -29,11 +29,15 @@
       <div class="uemd__chart-president{{#if isFinal}} final{{/if}}">
         <div class="uemd__chart-president--bars">
           <div class="uemd__chart-president--bar-container">
-            <div style="width: {{clinton_pct}}%;" class="uemd__chart-president--bar-fill dem">
-              Clinton <strong>{{trump}}</strong>
-            </div>
-            <div style="width: {{trump_pct}}%;" class="uemd__chart-president--bar-fill rep">
-              Trump <strong>{{trump}}</strong>
+            <div style="width: {{clinton_pct}}%;" class="uemd__chart-president--bar-fill dem"></div>
+            <div style="width: {{trump_pct}}%;" class="uemd__chart-president--bar-fill rep"></div>
+            <div class="uemd__chart-president--bar-labels">
+              <div class="uemd__chart-president--bar-label">
+                Clinton <strong>{{trump}}</strong>
+              </div>
+              <div class="uemd__chart-president--bar-label">
+                Trump <strong>{{trump}}</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -67,9 +71,7 @@
       <div class="uemd__chart-senate">
         <div class="uemd__chart-senate--bars">
           <div class="uemd__chart-senate--bar-container">
-            <div style="width: {{dem}}%;" class="uemd__chart-senate--bar-fill dem">
-              Dem <strong>{{dem}}</strong>
-            </div>
+            <div style="width: {{dem}}%;" class="uemd__chart-senate--bar-fill dem"></div>
 
             <div style="width: {{dem_contested}}%;" class="uemd__chart-senate--bar-fill dem-contested"></div>
 
@@ -77,11 +79,17 @@
             <div style="width: {{ind}}%;" class="uemd__chart-senate--bar-fill ind"></div>
             {{/if}}
 
-            <div style="width: {{rep}}%;" class="uemd__chart-senate--bar-fill rep">
-              Rep <strong>{{rep}}</strong>
-            </div>
+            <div style="width: {{rep}}%;" class="uemd__chart-senate--bar-fill rep"></div>
 
             <div style="width: {{rep_contested}}%;" class="uemd__chart-senate--bar-fill rep-contested"></div>
+            <div class="uemd__chart-senate--bar-labels">
+              <div class="uemd__chart-house--bar-label">
+                Dem <strong>{{dem}}</strong>
+              </div>
+              <div class="uemd__chart-house--bar-label">
+                Rep <strong>{{rep}}</strong>
+              </div>
+            </div>
           </div>
         </div>
         <span class="uemd__chart-senate--majority-label">
@@ -103,12 +111,17 @@
       <div class="uemd__chart-house">
         <div class="uemd__chart-house--bars">
           <div class="uemd__chart-house--bar-container">
-            <div style="width: {{dem_pct}}%;" class="uemd__chart-house--bar-fill dem">
-              Dem <strong>{{dem}}</strong>
-            </div>
+            <div style="width: {{dem_pct}}%;" class="uemd__chart-house--bar-fill dem"></div>
 
-            <div style="width: {{rep_pct}}%;" class="uemd__chart-house--bar-fill rep">
-              Rep <strong>{{rep}}</strong>
+            <div style="width: {{rep_pct}}%;" class="uemd__chart-house--bar-fill rep"></div>
+
+            <div class="uemd__chart-house--bar-labels">
+              <div class="uemd__chart-house--bar-label">
+                Dem <strong>{{dem}}</strong>
+              </div>
+              <div class="uemd__chart-house--bar-label">
+                Rep <strong>{{rep}}</strong>
+              </div>
             </div>
           </div>
         </div>
