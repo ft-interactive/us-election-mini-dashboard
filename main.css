@@ -73,6 +73,7 @@
   height: 2em;
   line-height: 2em;
   white-space: nowrap;
+  transition: width 600ms cubic-bezier(1, 0, 0, 1); /* easeInOutExpo */
 }
 
 .uemd__chart-president--best-guess .uemd__chart-president--bar-fill {

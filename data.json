@@ -24,8 +24,8 @@
         "dem": 30,
         "rep": 25,
         "ind": 1,
-        "dem_contested": 19,
-        "rep_contested": 25
+        "dem_contested": 19.5,
+        "rep_contested": 24.5
       },
       "house": {
         "dem": 261,
