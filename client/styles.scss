@@ -1,0 +1,245 @@
+@import 'o-colors/main';
+@import 'components/core/main';
+
+article {
+	background: #333;
+}
+
+.mini-dashboard {
+	$democrat-color: #0094cb;
+	$republican-color: #f12c49;
+
+	box-sizing: border-box;
+	width: 100%;
+	font: 16px / 1 oFontsGetFontFamilyWithFallbacks('MetricWeb');
+	color: white;
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: inherit;
+	}
+
+	// .enhanced &:not(.mini-dashboard--js) {
+	// 	.mini-dashboard__panel {
+	// 		display: none;
+	// 	}
+	// }
+
+	.o-tabs[data-o-tabs--js] {
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 6px;
+		position: relative;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: getColor('pink-tint4');
+			position: absolute;
+			top: 8px;
+		}
+
+		[role=tab] {
+			padding: 0 8px;
+			position: relative;
+			background-color: getColor('grey-tint5');
+
+			&:not(:first-child) {
+				border-left: 1px solid getColor('pink-tint4');
+			}
+
+			> a {
+				padding: 3px 0;
+				border-bottom: 1px solid transparent;
+				color: #dddddd;
+				font-size: 13px;
+			}
+
+			&[aria-selected=true] {
+				> a {
+					border-bottom-color: getColor('white');
+					font-weight: normal;
+					color: getColor('white');
+				}
+			}
+		}
+	}
+
+	&__panel-heading {
+		text-transform: uppercase;
+
+		.enhanced & {
+			display: none;
+		}
+	}
+
+	&__panel-content {
+		height: 90px;
+		overflow: hidden;
+	}
+
+	&__chart {
+		position: relative;
+		padding-top: 20px;
+	}
+
+	&__panel--president .mini-dashboard__chart:not(.mini-dashboard__chart--final) {
+		position: relative;
+		padding-top: 1.6em;
+	}
+
+	&__bar-container {
+		width: 100%;
+		height: 2em;
+		background: #5c5c5c;
+	}
+
+	&__best-guess {
+		> .mini-dashboard__bar-container {
+			height: 0.5em;
+			margin-top: 0.25em;
+		}
+	}
+
+	&__bar-fill {
+		padding: 0;
+		height: 2em;
+		line-height: 2em;
+		white-space: nowrap;
+
+		.mini-dashboard-best-guess & {
+			height: 0.5em;
+		}
+
+		&--dem {
+			background-color: $democrat-color;
+			float: left;
+			text-align: left;
+		}
+
+		&--rep {
+			background-color: $republican-color;
+			float: right;
+			text-align: right;
+		}
+
+		&--ind {
+			background-color: #9a9a9a;
+			float: left;
+		}
+
+		&--dem-contested {
+			float: left;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjMzQzMzMzJy8+CiAgPHBhdGggZD0nTS0xLDEgbDIsLTIKICAgICAgICAgICBNMCwxMCBsMTAsLTEwCiAgICAgICAgICAgTTksMTEgbDIsLTInIHN0cm9rZT0nIzAwOTRDQicgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==');
+			border: 1px solid $democrat-color;
+		}
+
+		&--rep-contested {
+			float: right;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjMzQzMzMzJy8+CiAgPHBhdGggZD0nTS0xLDEgbDIsLTIKICAgICAgICAgICBNMCwxMCBsMTAsLTEwCiAgICAgICAgICAgTTksMTEgbDIsLTInIHN0cm9rZT0nI0YxMkM0OScgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==');
+			border: 1px solid $republican-color;
+		}
+	}
+
+	&__bar-labels {
+		width: 100%;
+		position: absolute;
+	}
+
+	&__bar-label {
+		width: 50%;
+		float: left;
+		padding: 0 0.5em;
+		height: 2em;
+		line-height: 2em;
+	}
+
+	&__bar-label:nth-child(2) {
+		text-align: right;
+	}
+
+	&__legend {
+		line-height: 24px;
+		height: 20px;
+		font-size: 0.75em;
+	}
+
+	&__legend-item {
+		height: 16px;
+		width: 32px;
+		float: left;
+		margin-right: 0.25em;
+		margin-top: 4px;
+		&--dem-contested {
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjMzQzMzMzJy8+CiAgPHBhdGggZD0nTS0xLDEgbDIsLTIKICAgICAgICAgICBNMCwxMCBsMTAsLTEwCiAgICAgICAgICAgTTksMTEgbDIsLTInIHN0cm9rZT0nIzAwOTRDQicgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==');
+			border: 1px solid $democrat-color;
+		}
+
+		&--rep-contested {
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjMzQzMzMzJy8+CiAgPHBhdGggZD0nTS0xLDEgbDIsLTIKICAgICAgICAgICBNMCwxMCBsMTAsLTEwCiAgICAgICAgICAgTTksMTEgbDIsLTInIHN0cm9rZT0nI0YxMkM0OScgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==');
+			border: 1px solid $republican-color;
+		}
+	}
+
+	&__best-guess .mini-dashboard__bar-fill {
+		background-image: url('data:image/svg+xml;base64,ICA8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJz4KICA8cmVjdCB3aWR0aD0nMTAnIGhlaWdodD0nMTAnIGZpbGw9J3RyYW5zcGFyZW50Jy8+CiAgPHBhdGggZD0nTS0xLDEgbDIsLTIKICAgICAgICAgICBNMCwxMCBsMTAsLTEwCiAgICAgICAgICAgTTksMTEgbDIsLTInIHN0cm9rZT0nIzAwMDAwMCcgc3Ryb2tlLXdpZHRoPSczJy8+CiAgPC9zdmc+');
+		height: inherit;
+	}
+
+	&__best-guess .mini-dashboard__bar-fill--dem {
+		border: 1px solid $democrat-color;
+	}
+
+	&__best-guess .mini-dashboard__bar-fill--rep {
+		border: 1px solid $republican-color;
+	}
+
+	&__finish-line {
+		.mini-dashboard__panel--president & {
+			top: 5px;
+		}
+
+		text-align: center;
+		color: #eeeeee;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		margin: 0 auto;
+		font-size: 0.85em;
+
+		> hr {
+			margin: 0 auto;
+			border: 0;
+			background: #cdcdcd;
+		}
+	}
+
+	&__triangle {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 7px 7px 0;
+		border-color: #cdcdcd transparent transparent;
+		margin: 0 auto;
+	}
+
+	&__footnote {
+		font-size: 0.75em;
+		padding-top: 3px;
+		text-align: right;
+		color: #dddddd;
+		float: right;
+
+		.mini-dashboard__panel--senate & {
+			margin-top: -18px;
+		}
+	}
+
+	&__chart--final .mini-dashboard__footnote {
+		line-height: 2.5em;
+	}
+}
