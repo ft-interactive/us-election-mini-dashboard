@@ -1,151 +1,136 @@
-<!doctype html>
-<html>
-  <head>
-    <title>US Election Mini Dashboard (prototype)</title>
-
-    <link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^2.1.3" />
-    <link rel="stylesheet" href="main.css" />
-
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  </head>
-  <body>
-    <section class="mini-dashboard">
-        {% macro president(data) %}
-        {% for isFinal, clinton, clinton_pct, trump, trump_pct, bestGuessClinton_pct, bestGuessTrump_pct, footnot in data %}
-        <div class="mini-dashboard__chart {{#if isFinal}} mini-dashboard__chart--final{{/if}}">
-          <div class="mini-dashboard__bars">
-            <div class="mini-dashboard__bar-container">
-              <div style="width: {{clinton_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
-              <div style="width: {{trump_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
-              <div class="mini-dashboard__bar-labels">
-                <div class="mini-dashboard__bar-label">
-                  Clinton <strong>{{clinton}}</strong>
-                </div>
-                <div class="mini-dashboard__bar-label">
-                  Trump <strong>{{trump}}</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% if isFinal %}
-          <span class="mini-dashboard__finish-line">
-            270 to win
-            <div class="mini-dashboard__triangle"></div>
-            <hr width="1" size="34" noshade />
-          </span>
-          {% else %}
-          <div class="mini-dashboard__best-guess">
-            <div class="mini-dashboard__bar-container">
-              <div style="width: {{bestGuessClinton_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
-              <div style="width: {{bestGuessTrump_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
-            </div>
-          </div>
-          <span class="mini-dashboard__finish-line">
-            270 to win
-            <div class="mini-dashboard__triangle"></div>
-            <hr width="1" size="46" noshade />
-            Best guess
-          </span>
-          {% endif %}
-          <div class="mini-dashboard__footnote">
-            {{footnote}}
-          </div>
+{% macro president(data) %}
+{% for isFinal, clinton, clinton_pct, trump, trump_pct, bestGuessClinton_pct, bestGuessTrump_pct, footnot in data %}
+<div class="mini-dashboard__chart {% if isFinal %} mini-dashboard__chart--final{% endif %}">
+  <div class="mini-dashboard__bars">
+    <div class="mini-dashboard__bar-container">
+      <div style="width: {{clinton_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
+      <div style="width: {{trump_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
+      <div class="mini-dashboard__bar-labels">
+        <div class="mini-dashboard__bar-label">
+          Clinton <strong>{{clinton}}</strong>
         </div>
-      {% endfor %}
-      {% endmacro %}
-
-      {% macro senate(data) %}
-      {% for dem, dem_contested, ind, rep, rep_contested, footnote in data %}
-      <div class="mini-dashboard__chart">
-        <div class="mini-dashboard__bars">
-          <div class="mini-dashboard__bar-container">
-            <div style="width: {{dem}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
-
-            <div style="width: {{dem_contested}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem-contested"></div>
-
-            {% if ind %}
-            <div style="width: {{ind}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--ind"></div>
-            {% endif %}
-
-            <div style="width: {{rep}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
-
-            <div style="width: {{rep_contested}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep-contested"></div>
-
-            <div class="mini-dashboard__bar-labels">
-              <div class="mini-dashboard__bar-label">
-                Dem <strong>{{dem}}</strong>
-              </div>
-              <div class="mini-dashboard__bar-label">
-                Rep <strong>{{rep}}</strong>
-              </div>
-            </div>
-          </div>
+        <div class="mini-dashboard__bar-label">
+          Trump <strong>{{trump}}</strong>
         </div>
-        <span class="mini-dashboard__finish-line">
-          50 for majority
-          <div class="mini-dashboard__triangle"></div>
-          <hr width="1" size="34" noshade />
-        </span>
-        <div class="mini-dashboard__legend">
-          <div class="mini-dashboard__legend-item mini-dashboard__legend-item--dem-contested"></div>
-          <div class="mini-dashboard__legend-item mini-dashboard__legend-item--rep-contested"></div>
-          Contested seats
-        </div>
-        <span class="mini-dashboard__footnote">
-          {{footnote}}
-        </span>
       </div>
-      {% endfor %}
-      {% endmacro %}
+    </div>
+  </div>
+  {% if isFinal %}
+  <span class="mini-dashboard__finish-line">
+    270 to win
+    <div class="mini-dashboard__triangle"></div>
+    <hr width="1" size="34" noshade />
+  </span>
+  {% else %}
+  <div class="mini-dashboard__best-guess">
+    <div class="mini-dashboard__bar-container">
+      <div style="width: {{bestGuessClinton_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
+      <div style="width: {{bestGuessTrump_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
+    </div>
+  </div>
+  <span class="mini-dashboard__finish-line">
+    270 to win
+    <div class="mini-dashboard__triangle"></div>
+    <hr width="1" size="46" noshade />
+    Best guess
+  </span>
+  {% endif %}
+  <div class="mini-dashboard__footnote">
+    {{footnote}}
+  </div>
+</div>
+{% endfor %}
+{% endmacro %}
 
-      {% macro house(data) %}
-      {% for dem_pct, dem, rep_pct, rep, footnote in data %}
-      <div class="mini-dashboard__chart">
-        <div class="mini-dashboard__bars">
-          <div class="mini-dashboard__bar-container">
-            <div style="width: {{dem_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
-            <div style="width: {{rep_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
-            <div class="mini-dashboard__bar-labels">
-              <div class="mini-dashboard__bar-label">
-                Dem <strong>{{dem}}</strong>
-              </div>
-              <div class="mini-dashboard__bar-label">
-                Rep <strong>{{rep}}</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span class="mini-dashboard__finish-line">
-          218 for majority
-          <div class="mini-dashboard__triangle"></div>
-          <hr width="1" size="34" noshade />
-        </span>
-        <span class="mini-dashboard__footnote">
-          {{footnote}}
-        </span>
+{% macro senate(data) %}
+{% for dem, dem_contested, ind, rep, rep_contested, footnote in data %}
+<div class="mini-dashboard__chart">
+<div class="mini-dashboard__bars">
+  <div class="mini-dashboard__bar-container">
+    <div style="width: {{dem}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
+
+    <div style="width: {{dem_contested}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem-contested"></div>
+
+    {% if ind %}
+    <div style="width: {{ind}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--ind"></div>
+    {% endif %}
+
+    <div style="width: {{rep}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
+
+    <div style="width: {{rep_contested}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep-contested"></div>
+
+    <div class="mini-dashboard__bar-labels">
+      <div class="mini-dashboard__bar-label">
+        Dem <strong>{{dem}}</strong>
       </div>
-      {% endfor %}
-      {% endmacro %}
+      <div class="mini-dashboard__bar-label">
+        Rep <strong>{{rep}}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+<span class="mini-dashboard__finish-line">
+  50 for majority
+  <div class="mini-dashboard__triangle"></div>
+  <hr width="1" size="34" noshade />
+</span>
+<div class="mini-dashboard__legend">
+  <div class="mini-dashboard__legend-item mini-dashboard__legend-item--dem-contested"></div>
+  <div class="mini-dashboard__legend-item mini-dashboard__legend-item--rep-contested"></div>
+  Contested seats
+</div>
+<span class="mini-dashboard__footnote">
+  {{footnote}}
+</span>
+</div>
+{% endfor %}
+{% endmacro %}
 
-      {% for type in componentState.enabledPanels %}
-      <article class="mini-dashboard__panel mini-dashboard__panel--{{type}}">
-        {% set data = componentState.panelContents[type] %}
-        <h5 class="mini-dashboard__panel-heading">{{type}}</h5>
-        <div class="mini-dashboard__panel-content">
-          {{ if type == 'president'}}
-          {{ president(data) }}
-          {% endif %}
-          {{ if type == 'house'}}
-          {{ house(data) }}
-          {% endif %}
-          {{ if type == 'senate'}}
-          {{ senate(data) }}
-          {% endif %}
-        </div>
-      </article>
-      {% endfor %}
-    </section>
-    <script src="main.js"></script>
-  </body>
-</html>
+{% macro house(data) %}
+{% for dem_pct, dem, rep_pct, rep, footnote in data %}
+<div class="mini-dashboard__chart">
+<div class="mini-dashboard__bars">
+  <div class="mini-dashboard__bar-container">
+    <div style="width: {{dem_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--dem"></div>
+    <div style="width: {{rep_pct}}%;" class="mini-dashboard__bar-fill mini-dashboard__bar-fill--rep"></div>
+    <div class="mini-dashboard__bar-labels">
+      <div class="mini-dashboard__bar-label">
+        Dem <strong>{{dem}}</strong>
+      </div>
+      <div class="mini-dashboard__bar-label">
+        Rep <strong>{{rep}}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+<span class="mini-dashboard__finish-line">
+  218 for majority
+  <div class="mini-dashboard__triangle"></div>
+  <hr width="1" size="34" noshade />
+</span>
+<span class="mini-dashboard__footnote">
+  {{footnote}}
+</span>
+</div>
+{% endfor %}
+{% endmacro %}
+
+<section class="mini-dashboard">
+  {% for type in componentState.enabledPanels %}
+  <article class="mini-dashboard__panel mini-dashboard__panel--{{type}}">
+    {% set data = componentState.panelContents[type] %}
+    <h5 class="mini-dashboard__panel-heading">{{type}}</h5>
+    <div class="mini-dashboard__panel-content">
+      {% if type == 'president' %}
+      {{ president(data) }}
+      {% endif %}
+      {% if type == 'house'%}
+      {{ house(data) }}
+      {% endif %}
+      {% if type == 'senate'%}
+      {{ senate(data) }}
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
